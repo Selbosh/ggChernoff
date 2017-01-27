@@ -1,0 +1,17 @@
+Package: ggChernoff
+Title: Chernoff Faces for ggplot2
+Version: 0.0.0.9000
+Authors@R: person("David", "Selby", email = "d.selby@warwick.ac.uk", role = c("aut", "cre"))
+Description: Provides a Chernoff face geom for ggplot2. Maps multivariate data
+    to human-like faces.
+Depends:
+    R (>= 3.2.5)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    ggplot2 (>= 2.2.0),
+    grid
+RoxygenNote: 5.0.1
+URL: https://github.com/Selbosh/ggChernoff
+BugReports: https://github.com/Selbosh/ggChernoff/issues
