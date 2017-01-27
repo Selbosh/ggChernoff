@@ -53,8 +53,8 @@ often aesthetics, used to set an aesthetic to a fixed value, like
 to the paired geom/stat.}
 }
 \description{
-The Chernoff geom is used to create Chernoff-like visualisations in the shape of human faces.
-By mapping to the relevant aesthetics, faces can appear to vary in happiness, anger, size and so on.
+The Chernoff geom is used to create data visualisations in the shape of human-like faces.
+By mapping to the relevant aesthetics, faces can appear to vary in happiness, anger, size, colour and so on.
 }
 \section{Aesthetics}{
 
@@ -68,8 +68,10 @@ By mapping to the relevant aesthetics, faces can appear to vary in happiness, an
 }
 The following aesthetics are unique to \code{geom_chernoff}:
 \itemize{
-\item \code{nose}: logical. Draw a nose or not? Default is \code{FALSE}. Currently cannot be customised further.
+\item \code{smile}
+\item \code{nose}
 }
+For details, see \code{\link{chernoffGrob}}.
 }
 \examples{
 library(ggplot2)
@@ -89,5 +91,8 @@ ggplot(data.frame(x = 1:4,
 Chernoff, H. (1973).
 The use of faces to represent points in \emph{k}-dimensional space graphically.
 \emph{Journal of the American Statistical Association, 68}(342), 361–368.
+}
+\seealso{
+\code{\link{chernoffGrob}}
 }
 
