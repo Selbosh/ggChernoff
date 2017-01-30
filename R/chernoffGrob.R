@@ -47,7 +47,7 @@ chernoffGrob <- function(x = .5, y = .5,
     mouthGrob <- bezierGrob(rep(x, each = 4) + c(-1, -.5, .5, 1) * rep(size, each = 4) / 3,
                             rep(y, each = 4) + c(-1, -2, -2, -1) * rep(size, each = 4) / 3,
                             arrow = arrow(length = unit(0.005, 'npc'), type = 'closed'),
-                            gp = gpar(col = colour, lwd = 1),
+                            gp = gpar(col = colour, fill = colour),
                             id.lengths = rep(4, length(x))
     )
     grobTree(faceGrob, noseGrob, eyesGrob, mouthGrob)

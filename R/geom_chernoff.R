@@ -63,8 +63,21 @@ GeomChernoff <- ggproto("GeomChernoff", ggplot2::Geom,
   draw_key = ggplot2::draw_key_rect,
   draw_panel = function(data, panel_scales, coord) {
       coords <- coord$transform(data, panel_scales)
-      with(coords,
-           chernoffGrob(x, y, sqrt(size) / 35, colour, fill, alpha, smile, nose)
-           )
+      gl <- gTree()
+      for (i in seq_along(coords$x)) {
+        # Filthy hack: draw one whole face at a time
+        # so overlapping faces are rendered correctly.
+        gl <- with(coords,
+              addGrob(gl, chernoffGrob(x[i],
+                                       y[i],
+                                       sqrt(size[i]) / 35,
+                                       colour[i],
+                                       fill[i],
+                                       alpha[i],
+                                       smile[i],
+                                       nose[i]))
+              )
+      }
+      return(gl)
   }
 )
