@@ -68,7 +68,7 @@ GeomChernoff <- ggproto("GeomChernoff", ggplot2::Geom,
         # Filthy hack: draw one whole face at a time
         # so overlapping faces are rendered correctly.
         gl <- with(coords,
-              addGrob(gl, chernoffGrob(x[i],
+              addGrob(gl, chernoffGrob2(x[i],
                                        y[i],
                                        sqrt(size[i]) / 35,
                                        colour[i],

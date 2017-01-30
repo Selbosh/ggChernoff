@@ -53,3 +53,42 @@ chernoffGrob <- function(x = .5, y = .5,
                        fill = fill)
              )
 }
+
+#' Alternative way of drawing Chernoff faces
+#'
+#' This function is a work in progress, used to avoid corrupting
+#' the original \code{\link{chernoffGrob}} code.
+#'
+#' @import grid
+#' @export
+chernoffGrob2 <- function(x = .5, y = .5,
+                          size = .5,
+                          colour = 'black',
+                          fill = NA,
+                          alpha = 1,
+                          smile = 1,
+                          nose = FALSE,
+                          faceid = NULL) {
+  faceGrob <- circleGrob(x, y, r = size)
+  vp1 <- viewport(x = x, y = y,
+                  width = grobWidth(faceGrob), height = grobHeight(faceGrob))
+  eyesGrob <- circleGrob(rep(c(.3, +.7), each = length(x)),
+                         .6,
+                         r = 1/20,
+                         gp = gpar(fill = colour),
+                         vp = vp1)
+  noseGrob <- rectGrob(.5, .5,
+                       width = 1/20,
+                       height = 1/10,
+                       gp = gpar(col = NA, fill = ifelse(nose, colour, NA)),
+                       vp = vp1)
+  mouthGrob <- bezierGrob(rep(.5, each = 4) + c(-.2, -.1, .1, .2),
+                          rep(.5, each = 4) + c(-.1, -.3, -.3, -.1),
+                          arrow = arrow(length = unit(0.05, 'npc'), type = 'closed'),
+                          gp = gpar(fill = colour),
+                          id.lengths = rep(4, length(x)),
+                          vp = vp1)
+  grobTree(faceGrob, noseGrob, eyesGrob, mouthGrob,
+           gp = gpar(alpha = alpha, col = colour, fill = fill)
+           )
+}
