@@ -29,15 +29,12 @@ chernoffGrob <- function(x = .5, y = .5,
                          alpha = 1,
                          smile = 1,
                          nose = FALSE) {
-    faceGrob <- circleGrob(x, y,
-                           r = size,
-                           gp = gpar(col = colour, fill = fill)
-    )
+    faceGrob <- circleGrob(x, y, r = size)
     eyesGrob <- circleGrob(x + rep(c(-1, +1) * size / 2.5,
                                    each = length(x)),
                            y + size / 10,
                            r = size / 10,
-                           gp = gpar(col = colour, fill = colour)
+                           gp = gpar(fill = colour)
     )
     noseGrob <- rectGrob(x, y,
                          width = unit(size / 10, 'npc'),
@@ -47,8 +44,12 @@ chernoffGrob <- function(x = .5, y = .5,
     mouthGrob <- bezierGrob(rep(x, each = 4) + c(-1, -.5, .5, 1) * rep(size, each = 4) / 3,
                             rep(y, each = 4) + c(-1, -2, -2, -1) * rep(size, each = 4) / 3,
                             arrow = arrow(length = unit(0.005, 'npc'), type = 'closed'),
-                            gp = gpar(col = colour, fill = colour),
+                            gp = gpar(fill = colour),
                             id.lengths = rep(4, length(x))
     )
-    grobTree(faceGrob, noseGrob, eyesGrob, mouthGrob)
+    grobTree(faceGrob, noseGrob, eyesGrob, mouthGrob,
+             gp = gpar(alpha = alpha,
+                       col = colour,
+                       fill = fill)
+             )
 }
