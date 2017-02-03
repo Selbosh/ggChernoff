@@ -33,11 +33,11 @@ ggplot(iris) +
 
 Here is an example using Immer's barley data. We are happy about larger yields!
 ```r
-barley <- tidyr::gather(MASS::immer, Year, Yield, Y1:Y2)
-ggplot(barley) + aes(Year, Var, smile = Yield) +
+ggplot(lattice::barley) +
+  aes(year, variety, smile = yield) +
   geom_chernoff(size = 6, fill = 'goldenrod1') +
   scale_fill_brewer(type = 'div', palette = 1) +
-  facet_wrap(~Loc)
+  facet_wrap(~ site)
 ```
 
 ## References
