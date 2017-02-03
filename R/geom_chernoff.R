@@ -28,15 +28,16 @@
 #'
 #' @examples
 #' library(ggplot2)
-#' ggplot(iris, aes(Sepal.Width, Sepal.Length, fill = Species)) +
+#' ggplot(iris, aes(Sepal.Width, Sepal.Length, smile = Petal.Length, fill = Species)) +
 #'   geom_chernoff()
 #'
 #' ggplot(data.frame(x = 1:4,
 #'                   y = c(3:1, 2.5),
 #'                   z = factor(1:4),
+#'                   w = rnorm(4),
 #'                   n = c(rep(FALSE, 3), TRUE)
 #'                   )) +
-#'     aes(x, y, fill = z, size = x, nose = n) +
+#'     aes(x, y, fill = z, size = x, nose = n, smile = w) +
 #'     geom_chernoff()
 #'
 #' @references
@@ -63,18 +64,23 @@ GeomChernoff <- ggproto("GeomChernoff", ggplot2::Geom,
   draw_key = ggplot2::draw_key_rect,
   draw_panel = function(data, panel_scales, coord) {
       coords <- coord$transform(data, panel_scales)
+      if (diff(range(coords$smile)) == 0) {
+        smile2 <- rep(1, length(coords$smile))
+      } else {
+        smile2 <- 2 * (coords$smile - min(coords$smile)) / diff(range(coords$smile)) - 1
+      }
       gl <- gTree()
       for (i in seq_along(coords$x)) {
         # Filthy hack: draw one whole face at a time
         # so overlapping faces are rendered correctly.
         gl <- with(coords,
-              addGrob(gl, chernoffGrob2(x[i],
+              addGrob(gl, chernoffGrob(x[i],
                                        y[i],
                                        sqrt(size[i]) / 35,
                                        colour[i],
                                        fill[i],
                                        alpha[i],
-                                       smile[i],
+                                       smile2[i],
                                        nose[i]))
               )
       }

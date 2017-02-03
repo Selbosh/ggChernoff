@@ -20,7 +20,7 @@ chernoffGrob(x = 0.5, y = 0.5, size = 0.5, colour = "black",
 
 \item{alpha}{transparency, where 0 is transparent and 1 is opaque}
 
-\item{smile}{amount of smiling/frowning. Currently ignored}
+\item{smile}{amount of smiling/frowning}
 
 \item{nose}{logical. Adds a nose to the face}
 }
@@ -31,7 +31,7 @@ A \code{\link[grid]{grobTree}} object.
 Uses \code{\link[grid]{Grid}} graphics to draw a face.
 }
 \examples{
-face <- chernoffGrob(.5, .5, colour = 'navy', fill = 'coral')
+face <- chernoffGrob(.5, .5, colour = 'navy', fill = 'lightblue')
 grid::grid.newpage()
 grid::grid.draw(face)
 }
