@@ -6,8 +6,7 @@ but draws little smiley faces (emoticons) instead of dots.
 
 The Chernoff geom has some unique aesthetics, including `smile`,
 which makes your faces smile or frown according to the relative magnitude of your continuous variable.
-Otherwise, the minimum value will correspond to a sad face :( and the maximum value to a happy face :).
-The mid-point (not necessarily the mean or median) will generate a straight face :|.
+The mean value will generate a straight face **:|** while higher values will make smiles and lower values will draw frowns.
 If `smile` is unassigned, all faces will be happy.
 
 ## Getting started

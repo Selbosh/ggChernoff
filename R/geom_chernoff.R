@@ -67,7 +67,8 @@ GeomChernoff <- ggproto("GeomChernoff", ggplot2::Geom,
       if (diff(range(coords$smile)) == 0) {
         smile2 <- rep(1, length(coords$smile))
       } else {
-        smile2 <- 2 * (coords$smile - min(coords$smile)) / diff(range(coords$smile)) - 1
+        smile2 <- coords$smile - mean(coords$smile)
+        smile2 <- smile2 / max(abs(smile2))
       }
       gl <- gTree()
       for (i in seq_along(coords$x)) {
