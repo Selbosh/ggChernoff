@@ -42,17 +42,17 @@ ggplot(lattice::barley) +
 Basic legends are now supported. We can customise breaks and titles in the usual `ggplot2` way, via `scale_smile_continuous`.
 
 ```r
-g <- ggplot(data.frame(x = rnorm(10), y = rexp(10), z = runif(10))) +
+g <- ggplot(data.frame(x = rnorm(20), y = rexp(20), z = runif(20))) +
   aes(x, y, smile = z) +
   geom_chernoff(fill = 'steelblue1')
 g
-g + scale_smile_continuous('Smiles', breaks = c(0, .5, 1), midpoint = .5)
+g + scale_smile_continuous('Smilez', breaks = 0:10/10, midpoint = .5)
 ```
 
 You can also use this command to adjust the range of possible happiness/sadness in your plot. In the following example, everybody is somewhere between sad and straight-faced.
 
 ```r
-g + scale_smile_continuous('Smiles', range = c(-1, 0))
+g + scale_smile_continuous(range = c(-1, 0))
 ```
 
 ## References
