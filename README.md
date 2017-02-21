@@ -34,7 +34,7 @@ Here is an example using Immer's barley data. We are happy about larger yields!
 ```r
 ggplot(lattice::barley) +
   aes(year, variety, smile = yield) +
-  geom_chernoff(size = 6, fill = 'goldenrod1') +
+  geom_chernoff(fill = 'goldenrod1') +
   scale_x_discrete(limits = c('1931', '1932')) +
   facet_wrap(~ site)
 ```
