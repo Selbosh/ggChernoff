@@ -73,6 +73,7 @@ The following aesthetics are unique to \code{geom_chernoff}:
 }
 For details, see \code{\link{chernoffGrob}}.
 }
+
 \examples{
 library(ggplot2)
 ggplot(iris, aes(Sepal.Width, Sepal.Length, smile = Petal.Length, fill = Species)) +
@@ -96,4 +97,3 @@ The use of faces to represent points in \emph{k}-dimensional space graphically.
 \seealso{
 \code{\link{chernoffGrob}}
 }
-

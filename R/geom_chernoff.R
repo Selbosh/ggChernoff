@@ -52,7 +52,10 @@
 geom_chernoff <- function(mapping = NULL, data = NULL, stat = "identity",
                           position = "identity", na.rm = FALSE, show.legend = NA,
                           inherit.aes = TRUE, ...) {
-  layer(geom = GeomChernoff, mapping = mapping,  data = data, stat = stat,
+
+  #browser()
+
+  layer(geom = GeomChernoff, mapping = mapping, data = data, stat = stat,
         position = position, show.legend = show.legend, inherit.aes = inherit.aes,
         params = list(na.rm = na.rm, ...)
         )
@@ -64,13 +67,11 @@ GeomChernoff <- ggproto("GeomChernoff", ggplot2::Geom,
   draw_key = ggplot2::draw_key_rect,
   draw_panel = function(data, panel_scales, coord) {
       coords <- coord$transform(data, panel_scales)
-      if (diff(range(coords$smile)) == 0) {
-        smile2 <- rep(1, length(coords$smile))
-      } else {
-        smile2 <- coords$smile - mean(coords$smile)
-        smile2 <- smile2 / max(abs(smile2))
-      }
-      gl <- gTree()
+      # if (diff(range(coords$smile)) == 0) { SHOULD BE FIXED BY NA.VALUE IN SCALE_SMILE
+      #   # If all smiles equal/unspecified, everybody is happy
+      #   coords$smile <- rep(1, length(coords$smile))
+      # }
+      gl <- grobTree()
       for (i in seq_along(coords$x)) {
         # Filthy hack: draw one whole face at a time
         # so overlapping faces are rendered correctly.
@@ -81,10 +82,19 @@ GeomChernoff <- ggproto("GeomChernoff", ggplot2::Geom,
                                        colour[i],
                                        fill[i],
                                        alpha[i],
-                                       smile2[i],
+                                       smile[i],
                                        nose[i]))
               )
       }
       return(gl)
+  },
+  draw_key = function(data, params, size) {
+    chernoffGrob(x = .5, y = .5,
+                 size =  data$size / 2,
+                 data$colour,
+                 data$fill,
+                 data$alpha,
+                 data$smile,
+                 data$nose)
   }
 )

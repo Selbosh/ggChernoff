@@ -6,8 +6,8 @@ but draws little smiley faces (emoticons) instead of dots.
 
 The Chernoff geom has some unique aesthetics, including `smile`,
 which makes your faces smile or frown according to the relative magnitude of your continuous variable.
-The mean value will generate a straight face **:|** while higher values will make smiles and lower values will draw frowns.
-If `smile` is unassigned, all faces will be happy.
+By default, the mean value will generate a straight face **:|** while higher values will make smiles and lower values will draw frowns. You can customise this using `scale_smile`.
+If `smile` is unmapped to a variable, all faces will be happy by default.
 
 ## Getting started
 
@@ -37,6 +37,22 @@ ggplot(lattice::barley) +
   geom_chernoff(size = 6, fill = 'goldenrod1') +
   scale_x_discrete(limits = c('1931', '1932')) +
   facet_wrap(~ site)
+```
+
+Basic legends are now supported. We can customise breaks and titles in the usual `ggplot2` way, via `scale_smile_continuous`.
+
+```r
+g <- ggplot(data.frame(x = rnorm(10), y = rexp(10), z = runif(10))) +
+  aes(x, y, smile = z) +
+  geom_chernoff(fill = 'steelblue1')
+g
+g + scale_smile_continuous('Smiles', breaks = c(0, .5, 1), midpoint = .5)
+```
+
+You can also use this command to adjust the range of possible happiness/sadness in your plot. In the following example, everybody is somewhere between sad and straight-faced.
+
+```r
+g + scale_smile_continuous('Smiles', range = c(-1, 0))
 ```
 
 ## References
