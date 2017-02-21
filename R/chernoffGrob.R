@@ -23,13 +23,13 @@
 #' grid::grid.newpage()
 #' grid::grid.draw(face)
 chernoffGrob <- function(x = .5, y = .5,
-                          size = .5,
+                          size = 1,
                           colour = 'black',
                           fill = NA,
                           alpha = 1,
                           smile = 1,
                           nose = FALSE) {
-  faceGrob <- circleGrob(x, y, r = size)
+  faceGrob <- circleGrob(x, y, r = unit(sqrt(size) * .5, 'lines'))
   vp1 <- viewport(x = x, y = y,
                   width = grobWidth(faceGrob), height = grobHeight(faceGrob))
   eyesGrob <- circleGrob(rep(c(.3, +.7), each = length(x)),
@@ -42,7 +42,6 @@ chernoffGrob <- function(x = .5, y = .5,
                          vp = vp1)
   mouthGrob <- bezierGrob(rep(.5, each = 4) + c(-.2, -.1, .1, .2),
                           rep(.3, each = 4) + smile * c(.1, -.05, -.05, .1),
-                          #arrow = arrow(length = unit(0.05, 'npc'), type = 'closed'),
                           gp = gpar(fill = colour),
                           id.lengths = rep(4, length(x)),
                           vp = vp1)

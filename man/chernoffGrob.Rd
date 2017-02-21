@@ -4,8 +4,8 @@
 \alias{chernoffGrob}
 \title{Draw a smiley face}
 \usage{
-chernoffGrob(x = 0.5, y = 0.5, size = 0.5, colour = "black",
-  fill = NA, alpha = 1, smile = 1, nose = FALSE)
+chernoffGrob(x = 0.5, y = 0.5, size = 1, colour = "black", fill = NA,
+  alpha = 1, smile = 1, nose = FALSE)
 }
 \arguments{
 \item{x}{horizontal position}
@@ -38,4 +38,3 @@ grid::grid.draw(face)
 \seealso{
 \code{\link{geom_chernoff}}
 }
-
