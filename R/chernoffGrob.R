@@ -29,7 +29,8 @@ chernoffGrob <- function(x = .5, y = .5,
                           alpha = 1,
                           smile = 1,
                           nose = FALSE) {
-  faceGrob <- circleGrob(x, y, r = unit(sqrt(size) * .5, 'lines'))
+  .pt <- 72.27 / 25.4
+  faceGrob <- circleGrob(x, y, r = unit(sqrt(.5 * size * .pt), 'mm'))
   vp1 <- viewport(x = x, y = y,
                   width = grobWidth(faceGrob), height = grobHeight(faceGrob))
   eyesGrob <- circleGrob(rep(c(.3, +.7), each = length(x)),

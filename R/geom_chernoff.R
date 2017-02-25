@@ -60,7 +60,7 @@ geom_chernoff <- function(mapping = NULL, data = NULL, stat = "identity",
 
 GeomChernoff <- ggproto("GeomChernoff", ggplot2::Geom,
   required_aes = c("x", "y"),
-  default_aes = aes(colour = "black", fill = NA, size = 1, alpha = 1, smile = 1, nose = FALSE),
+  default_aes = aes(colour = "black", fill = NA, size = 4, alpha = 1, smile = 1, nose = FALSE),
   draw_key = ggplot2::draw_key_rect,
   draw_panel = function(data, panel_scales, coord) {
       coords <- coord$transform(data, panel_scales)
@@ -82,7 +82,7 @@ GeomChernoff <- ggproto("GeomChernoff", ggplot2::Geom,
   },
   draw_key = function(data, params, size) {
     chernoffGrob(x = .5, y = .5,
-                 size = data$size,
+                 data$size,
                  data$colour,
                  data$fill,
                  data$alpha,
