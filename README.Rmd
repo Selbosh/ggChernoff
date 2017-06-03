@@ -75,7 +75,7 @@ You can also use this command to adjust the range of possible happiness/sadness 
 g + scale_smile_continuous(range = c(-1, 0))
 ```
 
-## Space invaders!
+## Space invaders! :alien:
 
 ```{r spaceinvaders}
 cannon <- data.frame(x = 0, y = 0, colour = 'white', size = 20)

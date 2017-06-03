@@ -77,8 +77,8 @@ g + scale_smile_continuous(range = c(-1, 0))
 
 ![](README-range-1.png)
 
-Space invaders!
----------------
+Space invaders! :alien:
+-----------------------
 
 ``` r
 cannon <- data.frame(x = 0, y = 0, colour = 'white', size = 20)
