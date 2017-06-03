@@ -75,6 +75,32 @@ g + scale_smile_continuous(range = c(-1, 0))
 
 ![](README-range-1.png)
 
+Space invaders!
+---------------
+
+``` r
+cannon <- data.frame(x = 0, y = 0, colour = 'white', size = 20)
+bunkers <- data.frame(x = seq(-4, 4, l = 4), y = 2, colour = 'green', size = 1)
+ufos <- data.frame(x = rep(seq(-6, 6, length.out = 12), 5),
+                   y = rep(6:10, each = 12), size = 10,
+                   colour = c('cyan', 'yellow', 'magenta')[
+                     c(rep(1:3,4), rep(c(2,3,1),4), rep(c(3,1,2),4), rep(1:3, 4), rep(c(2,3,1),4))
+                     ])
+ggplot(ufos) +
+  aes(x, y, fill = colour, size = size) +
+  geom_chernoff(smile = -1) +
+  geom_chernoff(data = cannon) +
+  geom_tile(data = bunkers, width = 1) +
+  geom_tile(data = data.frame(x = 0, y = 3, colour = 'white', size = 2), width = .1) +
+  scale_fill_identity() +
+  scale_size_identity() +
+  theme_void() +
+  theme(plot.background = element_rect(fill = 'black'),
+        legend.background = element_rect(fill = 'white'))
+```
+
+![](README-spaceinvaders-1.png)
+
 References
 ----------
 
