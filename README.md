@@ -3,7 +3,7 @@
 Draw Chernoff faces in ggplot2
 ==============================
 
-[![Build Status](https://travis-ci.org/Selbosh/ggChernoff.svg?branch=master)](https://travis-ci.org/Selbosh/ggChernoff)
+[![Build Status](https://travis-ci.org/Selbosh/ggChernoff.svg?branch=master)](https://travis-ci.org/Selbosh/ggChernoff) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/Selbosh/ggChernoff?branch=master&svg=true)](https://ci.appveyor.com/project/Selbosh/ggChernoff)
 
 This silly package, `ggChernoff`, introduces a `geom_chernoff` geom for [`ggplot2`](http://ggplot2.org). This works a bit like [`geom_point`](http://docs.ggplot2.org/current/geom_point.html), but draws little smiley faces (emoticons) instead of dots.
 
