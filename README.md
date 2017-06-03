@@ -7,7 +7,7 @@ Draw Chernoff faces in ggplot2
 
 This silly package, `ggChernoff`, introduces a `geom_chernoff` geom for [`ggplot2`](http://ggplot2.org). This works a bit like [`geom_point`](http://docs.ggplot2.org/current/geom_point.html), but draws little smiley faces (emoticons) instead of dots.
 
-The Chernoff geom has some unique aesthetics, including `smile`, which makes your faces smile or frown according to the relative magnitude of your continuous variable. By default, the mean value will generate a straight face **:|** while higher values will make smiles and lower values will draw frowns. You can customise this using `scale_smile`. If `smile` is unmapped to a variable, all faces will be happy by default.
+The Chernoff geom has some unique aesthetics, including `smile`, which makes your faces smile or frown according to the relative magnitude of your continuous variable. By default, the mean value will generate a straight face :expressionless: while higher values will make smiles :blush: and lower values will draw frowns :cry:. You can customise this using `scale_smile`. If `smile` is unmapped to a variable, all faces will be happy by default.
 
 Getting started
 ---------------
@@ -75,7 +75,7 @@ g + scale_smile_continuous(range = c(-1, 0))
 
 ![](README-range-1.png)
 
-Space invaders!
+Space invaders! :alien:
 ---------------
 
 ``` r
