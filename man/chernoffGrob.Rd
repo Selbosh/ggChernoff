@@ -5,7 +5,7 @@
 \title{Draw a smiley face}
 \usage{
 chernoffGrob(x = 0.5, y = 0.5, size = 1, colour = "black", fill = NA,
-  alpha = 1, smile = 1, nose = FALSE)
+  alpha = 1, smile = 1, brow = NA, nose = FALSE)
 }
 \arguments{
 \item{x}{horizontal position}
@@ -21,6 +21,8 @@ chernoffGrob(x = 0.5, y = 0.5, size = 1, colour = "black", fill = NA,
 \item{alpha}{transparency, where 0 is transparent and 1 is opaque}
 
 \item{smile}{amount of smiling/frowning}
+
+\item{brow}{eyebrow angle, to represent anger or concern}
 
 \item{nose}{logical. Adds a nose to the face}
 }

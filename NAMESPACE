@@ -2,6 +2,8 @@
 
 export(chernoffGrob)
 export(geom_chernoff)
+export(scale_brow)
+export(scale_brow_continuous)
 export(scale_smile)
 export(scale_smile_continuous)
 import(ggplot2)

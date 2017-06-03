@@ -69,6 +69,7 @@ By mapping to the relevant aesthetics, faces can appear to vary in happiness, an
 The following aesthetics are unique to \code{geom_chernoff}:
 \itemize{
 \item \code{smile}
+\item \code{brow}
 \item \code{nose}
 }
 For details, see \code{\link{chernoffGrob}}.

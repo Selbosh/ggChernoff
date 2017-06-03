@@ -22,6 +22,7 @@
 #' The following aesthetics are unique to \code{geom_chernoff}:
 #' \itemize{
 #' \item \code{smile}
+#' \item \code{brow}
 #' \item \code{nose}
 #' }
 #' For details, see \code{\link{chernoffGrob}}.
@@ -60,7 +61,7 @@ geom_chernoff <- function(mapping = NULL, data = NULL, stat = "identity",
 
 GeomChernoff <- ggproto("GeomChernoff", ggplot2::Geom,
   required_aes = c("x", "y"),
-  default_aes = aes(colour = "black", fill = NA, size = 4, alpha = 1, smile = 1, nose = FALSE),
+  default_aes = aes(colour = "black", fill = NA, size = 4, alpha = 1, smile = 1, brow = NA, nose = FALSE),
   draw_key = ggplot2::draw_key_rect,
   draw_panel = function(data, panel_scales, coord) {
       coords <- coord$transform(data, panel_scales)
@@ -75,6 +76,7 @@ GeomChernoff <- ggproto("GeomChernoff", ggplot2::Geom,
                                        coords$fill[i],
                                        coords$alpha[i],
                                        coords$smile[i],
+                                       coords$brow[i],
                                        coords$nose[i])
                       )
       }
@@ -87,6 +89,7 @@ GeomChernoff <- ggproto("GeomChernoff", ggplot2::Geom,
                  data$fill,
                  data$alpha,
                  data$smile,
+                 data$brow,
                  data$nose)
   }
 )

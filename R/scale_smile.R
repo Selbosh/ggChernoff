@@ -16,7 +16,7 @@
 #' @param range Output range of smiles. +1 corresponds to a full smile and -1 corresponds to a full frown.
 #' @param midpoint A value or function of your data that will return a neutral/straight face, i.e. \code{:-|}
 #'
-#' @seealso \code{\link{geom_chernoff}}
+#' @seealso \code{\link{geom_chernoff}}, \code{\link{scale_brow}}
 #'
 #' @importFrom scales rescale_mid
 #'

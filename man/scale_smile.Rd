@@ -41,5 +41,5 @@ p + scale_smile_continuous(range = c(-.5, 2))
 
 }
 \seealso{
-\code{\link{geom_chernoff}}
+\code{\link{geom_chernoff}}, \code{\link{scale_brow}}
 }
