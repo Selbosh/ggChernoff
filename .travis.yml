@@ -3,6 +3,3 @@
 language: R
 sudo: false
 cache: packages
-
-before_install:
-	- "tlmgr option repository ftp://tug.org/historic/systems/texlive/2015/tlnet-final"
