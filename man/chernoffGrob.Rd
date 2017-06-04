@@ -33,7 +33,7 @@ A \code{\link[grid]{grobTree}} object.
 Uses \code{\link[grid]{Grid}} graphics to draw a face.
 }
 \examples{
-face <- chernoffGrob(.5, .5, colour = 'navy', fill = 'lightblue')
+face <- chernoffGrob(.5, .5, size = 1e3, smile = -1, brow = 1, colour = 'navy', fill = 'lightblue')
 grid::grid.newpage()
 grid::grid.draw(face)
 }
