@@ -2,7 +2,7 @@
 #'
 #' \code{scale_brow} lets you customise how eyebrows are generated from your data.
 #' It also lets you tweak the appearance of legends and so on.
-#' By default, \code{brow} is set to \code{NA}, which means no eyebrows will appear.
+#' By default, \code{brow} is set to \code{NA}, in which case no eyebrows will appear (see Examples).
 #'
 #' Use \code{range} to vary how angrily your maximum/minimum values are represented.
 #' Minima smaller than -1 and maxima greater than +1 are possible but might look odd!
@@ -29,6 +29,16 @@
 #' p
 #' p + scale_brow_continuous(midpoint = min)
 #' p + scale_brow_continuous(range = c(-.5, 2))
+#'
+#' # Only show eyebrows if 'sad', otherwise hide them
+#' ggplot(data.frame(date = as.Date(presidents), rating = c(presidents))) +
+#'     aes(date, rating, smile = rating, fill = rating,
+#'         brow = ifelse(rating < 50, rating, NA)) +
+#'     geom_line() +
+#'     geom_chernoff(show.legend = FALSE) +
+#'     scale_brow(range = -1:0)) +
+#'     scale_fill_gradient(low = 'skyblue1', high = 'goldenrod1')
+#'
 #'
 #' @rdname scale_brow
 #'
