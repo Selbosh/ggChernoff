@@ -50,8 +50,8 @@ chernoffGrob <- function(x = .5, y = .5,
   noseGrob <- circleGrob(r = 1/15,
                          gp = gpar(col = ifelse(nose, colour, NA), fill = NA),
                          vp = vp1)
-  mouthGrob <- bezierGrob(rep(.5, each = 4) + c(-.2, -.1, .1, .2),
-                          rep(.3, each = 4) + smile * c(.1, -.05, -.05, .1),
+  mouthGrob <- bezierGrob(rep(.5, each = 4) + c(-.25, -.1, .1, .25),
+                          rep(.28, each = 4) + smile * c(.08, -.12, -.12, .08),
                           gp = gpar(fill = colour),
                           id.lengths = rep(4, length(x)),
                           vp = vp1)
