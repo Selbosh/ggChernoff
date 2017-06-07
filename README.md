@@ -98,7 +98,8 @@ ggplot(ufos) +
   scale_fill_identity() +
   scale_size_identity() +
   theme_void() +
-  theme(plot.background = element_rect(fill = 'black'))
+  theme(plot.background = element_rect(fill = 'black'),
+        legend.position = 'none')
 ```
 
 ![](README-spaceinvaders-1.png)

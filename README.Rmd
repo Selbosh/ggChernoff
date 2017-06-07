@@ -4,7 +4,7 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo = FALSE}
+```{r setup, echo = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -36,7 +36,7 @@ Install the package using
 devtools::install_github('Selbosh/ggChernoff')
 ```
 and then load it using
-```{r}
+```{r load}
 library(ggChernoff)
 ```
 
@@ -95,7 +95,8 @@ ggplot(ufos) +
   scale_fill_identity() +
   scale_size_identity() +
   theme_void() +
-  theme(plot.background = element_rect(fill = 'black'))
+  theme(plot.background = element_rect(fill = 'black'),
+        legend.position = 'none')
 ```
 
 ## References
