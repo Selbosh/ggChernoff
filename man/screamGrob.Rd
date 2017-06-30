@@ -4,7 +4,7 @@
 \alias{screamGrob}
 \title{Draw a screaming face}
 \usage{
-screamGrob(x = 0.5, y = 0.5, size = 1, colour = "black", fill = NA,
+screamGrob(x = 0.5, y = 0.5, size = 4, colour = "black", fill = NA,
   alpha = 1, scream = 1)
 }
 \arguments{
@@ -27,8 +27,14 @@ A \code{\link[grid]{grobTree}} object.
 Generates a face in the style of Edvard Munch's 1893 painting \emph{The Scream}.
 Adjusting parameters of the function can make the expression more or less dramatic.
 }
+\examples{
+grid::grid.newpage()
+grid::grid.draw(screamGrob(.7, .7, size = 50))
+grid::grid.draw(screamGrob(size = 50, fill = 'goldenrod1'))
+
+}
 \references{
-Murrell, Paul (2012). It's not what you draw, it's what you don't draw. \emph{R Journal} 4/2. \url{https://journal.r-project.org/archive/2012-2/RJournal_2012-2_Murrell2.pdf}
+Murrell, Paul (2012). It's Not What You Draw, It's What You Don't Draw. \emph{R Journal} 4/2. \url{https://journal.r-project.org/archive/2012-2/RJournal_2012-2_Murrell2.pdf}
 
 Munch, Edvard (1893). \emph{Skrik (Der Schrei der Natur)}.
 }

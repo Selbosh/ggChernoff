@@ -2,6 +2,7 @@
 
 export(chernoffGrob)
 export(geom_chernoff)
+export(geom_munch)
 export(scale_brow)
 export(scale_brow_continuous)
 export(scale_smile)
@@ -9,4 +10,5 @@ export(scale_smile_continuous)
 export(screamGrob)
 import(ggplot2)
 import(grid)
+importFrom(gridExtra,ellipseGrob)
 importFrom(scales,rescale_mid)

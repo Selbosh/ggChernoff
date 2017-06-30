@@ -17,35 +17,57 @@
 #'
 #' Munch, Edvard (1893). \emph{Skrik (Der Schrei der Natur)}.
 #'
+#' @examples
+#' grid::grid.newpage()
+#' grid::grid.draw(screamGrob(.7, .7, size = 50))
+#' grid::grid.draw(screamGrob(size = 50, fill = 'goldenrod1'))
+#'
 #' @seealso \code{\link{chernoffGrob}}
 #' @import grid
 #' @importFrom gridExtra ellipseGrob
 #' @export
 screamGrob <- function(x = .5, y = .5,
-                       size = 1,
+                       size = 4,
                        colour = 'black',
                        fill = NA,
                        alpha = 1,
                        scream = 1) {
   .pt <- 72.27 / 25.4
-
-  x <- c(.1, .1, .9, .9, # Cranium
-         .9, .9, .7, .7, # Right cheek
-         .7, .7, .3, .3, # Chin
-         .3, .3, .1, .1) # Left cheek
-  y <- c(.7,  1,  1, .7, # Cranium
-         .7, .5, .6, .3, # Right cheek
-         .3, .1, .1, .3, # Chin
-         .3, .6, .5, .7) # Left cheek
-  faceGrob <- bezierGrob(x, y,
-                         id.lengths = rep(4, 4))
+  vp <- viewport(x = x, y = y,
+                 width = unit(sqrt(size * .pt), 'mm'),
+                 height = unit(sqrt(size * .pt), 'mm'),
+                 default.units = 'npc')
+  facex <- c(.1, .1, .9, .9, # Cranium
+             .9, .9, .7, .7, # Right cheek
+             .7, .7, .3, .3, # Chin
+             .3, .3, .1, .1) # Left cheek
+  facey <- c(.7,  1,  1, .7, # Cranium
+             .7, .5, .6, .3, # Right cheek
+             .3, .1, .1, .3, # Chin
+             .3, .6, .5, .7) # Left cheek
+  faceShape <- bezierGrob(facex, facey,
+                          id.lengths = rep(4, 4),
+                          default.units = 'npc',
+                          vp = vp)
+  facePoints <- do.call(rbind, bezierPoints(faceShape))
+  faceGrob <- polygonGrob(convertUnit(unit(unlist(facePoints[, 1]), 'inches'), 'npc'),
+                          convertUnit(unit(unlist(facePoints[, 2]), 'inches'), 'npc'),
+                          gp = gpar(colour = colour, fill = fill),
+                          vp = vp)
   eyesGrob <- circleGrob(c(.3, .7),
-                         c(.7, .7),
-                         r = .1)
-  mouthGrob <- gridExtra::ellipseGrob(.5, .35,
+                         c(.7, .7) * 2,
+                         r = .1,
+                         default.units = 'npc',
+                         gp = gpar(colour = colour, fill = colour),
+                         vp = vp)
+  mouthGrob <- gridExtra::ellipseGrob(.5,
+                                      .35 * 2,
                                       angle = 0,
                                       size = .1,
+                                      position.units = 'npc',
                                       size.units = 'npc',
-                                      ar = .7)
+                                      ar = .6,
+                                      gp = gpar(colour = colour, fill = colour),
+                                      vp = vp)
   grobTree(faceGrob, eyesGrob, mouthGrob)
 }
