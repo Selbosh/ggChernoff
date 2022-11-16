@@ -29,6 +29,9 @@
 #' p + scale_eyes_continuous(range = c(0, 2))
 #'
 #' @rdname scale_eyes
+#' 
+#' @return
+#' A \code{\link[ggplot2:continuous_scale]{Scale}} layer object for use with \code{ggplot2}.
 #'
 #' @export
 scale_eyes_continuous <- function(..., range = c(.1, 2), midpoint = mean) {

@@ -42,6 +42,9 @@
 #'
 #'
 #' @rdname scale_brow
+#' 
+#' @return
+#' A \code{\link[ggplot2:continuous_scale]{Scale}} layer object for use with \code{ggplot2}.
 #'
 #' @export
 scale_brow_continuous <- function(..., range = c(-1, 1), midpoint = mean) {

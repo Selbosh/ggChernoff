@@ -3,7 +3,7 @@ Title: Chernoff Faces for 'ggplot2'
 Version: 0.3.0
 Authors@R: person("David", "Selby", email = "selby@cs.uni-kl.de", role = c("aut", "cre"))
 Description: Provides a Chernoff face geom for 'ggplot2'. Maps multivariate data
-    to human-like faces.
+    to human-like faces. Inspired by Chernoff (1973) <doi:10.1080/01621459.1973.10482434>
 Depends:
     R (>= 3.2.5)
 License: MIT + file LICENSE

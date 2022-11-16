@@ -48,6 +48,9 @@
 #' \emph{Journal of the American Statistical Association, 68}(342), 361–368.
 #'
 #' @seealso \code{\link{chernoffGrob}}
+#' 
+#' @return
+#' A \code{\link[ggplot2:Geom]{Geom}} layer object for use with \code{ggplot2}.
 #'
 #' @import ggplot2
 #' @export geom_chernoff

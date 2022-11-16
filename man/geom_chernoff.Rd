@@ -66,6 +66,9 @@ often aesthetics, used to set an aesthetic to a fixed value, like
 \code{colour = "red"} or \code{size = 3}. They may also be parameters
 to the paired geom/stat.}
 }
+\value{
+A \code{\link[ggplot2:Geom]{Geom}} layer object for use with \code{ggplot2}.
+}
 \description{
 The Chernoff geom is used to create data visualisations in the shape of human-like faces.
 By mapping to the relevant aesthetics, faces can appear to vary in happiness, anger, size, colour and so on.

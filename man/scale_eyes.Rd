@@ -16,6 +16,9 @@ scale_eyes(..., range = c(0.1, 2), midpoint = mean)
 
 \item{midpoint}{A value or function of your data that will return a 'normal' separation}
 }
+\value{
+A \code{\link[ggplot2:continuous_scale]{Scale}} layer object for use with \code{ggplot2}.
+}
 \description{
 \code{scale_eyes} lets you customise how eye separation is determined from your data.
 It also lets you tweak the appearance of legends and so on.

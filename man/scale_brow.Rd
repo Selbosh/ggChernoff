@@ -16,6 +16,9 @@ scale_brow(..., range = c(-1, 1), midpoint = mean)
 
 \item{midpoint}{A value or function of your data that will return level eyebrows, i.e. \code{¦:-)}}
 }
+\value{
+A \code{\link[ggplot2:continuous_scale]{Scale}} layer object for use with \code{ggplot2}.
+}
 \description{
 \code{scale_brow} lets you customise how eyebrows are generated from your data.
 It also lets you tweak the appearance of legends and so on.

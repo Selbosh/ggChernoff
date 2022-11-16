@@ -16,6 +16,9 @@ scale_smile(..., range = c(-1, 1), midpoint = mean)
 
 \item{midpoint}{A value or function of your data that will return a neutral/straight face, i.e. \code{:-|}}
 }
+\value{
+A \code{\link[ggplot2:ggplot2-ggproto]{Scale}} layer object for use with \code{ggplot2}.
+}
 \description{
 \code{scale_smile} lets you customise how smiles are generated from your data.
 It also lets you tweak the appearance of legends and so on.
