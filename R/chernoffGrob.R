@@ -11,6 +11,7 @@
 #' @param smile amount of smiling/frowning
 #' @param brow eyebrow angle, to represent anger or concern
 #' @param nose logical. Adds a nose to the face
+#' @param eyes distance between the eyes
 #'
 #' @return A \code{\link[grid]{grobTree}} object.
 #'
@@ -24,18 +25,19 @@
 #' grid::grid.newpage()
 #' grid::grid.draw(face)
 chernoffGrob <- function(x = .5, y = .5,
-                          size = 1,
-                          colour = 'black',
-                          fill = NA,
-                          alpha = 1,
-                          smile = 1,
-                          brow = NA,
-                          nose = FALSE) {
+                         size = 1,
+                         colour = 'black',
+                         fill = NA,
+                         alpha = 1,
+                         smile = 1,
+                         brow = NA,
+                         nose = FALSE,
+                         eyes = 1) {
   .pt <- 72.27 / 25.4
   faceGrob <- circleGrob(x, y, r = unit(sqrt(.5 * size * .pt), 'mm'))
   vp1 <- viewport(x = x, y = y,
                   width = grobWidth(faceGrob), height = grobHeight(faceGrob))
-  eyesGrob <- circleGrob(rep(c(.3, +.7), each = length(x)),
+  eyesGrob <- circleGrob(rep(0.5 + eyes * c(-.2, +.2), each = length(x)),
                          .6,
                          r = 1/20,
                          gp = gpar(fill = colour),

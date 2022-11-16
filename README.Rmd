@@ -77,6 +77,15 @@ You can also use this command to adjust the range of possible happiness/sadness 
 g + scale_smile_continuous(range = c(-1, 0))
 ```
 
+**New feature as of 0.3.0**: eye separation.
+
+```{r eyes}
+ggplot(iris) +
+  aes(Petal.Width, Petal.Length, fill = Species, eyes = Sepal.Length) +
+  geom_chernoff() +
+  scale_eyes_continuous(range = c(0, 2))
+```
+
 ## Space invaders! :alien:
 
 ```{r spaceinvaders}
@@ -90,7 +99,7 @@ ufos <- data.frame(x = rep(seq(-6, 6, length.out = 12), 5),
                    brow = rnorm(60))
 ggplot(ufos) +
   aes(x, y, fill = colour, size = size) +
-  geom_chernoff(smile = -1, aes(brow = brow)) +
+  geom_chernoff(smile = -1, aes(brow = brow), eyes = .5) +
   geom_chernoff(data = cannon) +
   geom_tile(data = bunkers, width = 1) +
   geom_tile(data = data.frame(x = 0, y = 3, colour = 'white', size = 2), width = .1) +

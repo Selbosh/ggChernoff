@@ -1,3 +1,11 @@
+# ggChernoff 0.3.0
+
+* Added an `eyes` aesthetic to control the distance between eyes.
+
+# ggChernoff 0.2.0
+
+* Initial submission to CRAN.
+
 # ggChernoff 0.1.2.9001
 
 * Added a `NEWS.md` file to track changes to the package.
